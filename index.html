@@ -12,31 +12,37 @@
 </head>
 <body>
 <!--<polymer-son-app></polymer-son-app>-->
-<button is="my-button"></button>
+<button is="my-button" _prop1></button>
 <script type="text/javascript">
     (function () {
         var MyButton = Polymer({
             is: 'my-button',
             extends: 'button',
+            _prop1: true,
             ready: function(){
-                if(this.prop1) {
-                    this.innerHTML = this.teste;
-                }else{
-                    this.innerHTML = "prop1 é false"
-                }
-
+                this.methods.defineInnerHTML(this);
             },
             properties: {
                 teste: {
-                    type: Object,
+                    type: Number,
                     value: 120
-                },
-                prop1: {
-                    type: Boolean,
+                }
+            },
+            methods: {
+                defineInnerHTML: function (self) {
+                    if (self._prop1) {
+                        self.innerHTML = self.teste;
+                    } else {
+                        self.innerHTML = "prop1 é false"
+                    }
+                    console.log("executou método");
                 }
             }
         });
 
+        var myButton1 = new MyButton();
+        myButton1.methods.defineInnerHTML(this);
+        console.log(myButton1._prop1);
     })();
 </script>
 </body>
