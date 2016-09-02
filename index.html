@@ -1,0 +1,34 @@
+<!doctype html>
+
+<html>
+<head>
+    <title>polymer-son</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="manifest" href="/manifest.json">
+    <script src="/bower_components/webcomponentsjs/webcomponents-lite.js"></script>
+    <!--<link rel="import" href="/src/polymer-son-app/polymer-son-app.html">-->
+    <link rel="import" href="bower_components/polymer/polymer.html">
+</head>
+<body>
+<!--<polymer-son-app></polymer-son-app>-->
+<script type="text/javascript">
+    (function () {
+        var MyElement = Polymer({
+            is: 'my-element',
+            factoryImpl: function (texto) {
+                this.textContent = texto;
+            }
+        });
+
+        var myElement = document.createElement('my-element');
+        myElement.textContent = "Hello World!";
+        document.body.appendChild(myElement);
+
+        var myElement2 = new MyElement('Hello World 2!');
+        document.body.appendChild(myElement2);
+        console.log(myElement);
+    })();
+</script>
+</body>
+</html>
