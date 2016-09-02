@@ -1,4 +1,5 @@
 <link rel="import" href="../../bower_components/polymer/polymer.html">
+<link rel="import" href="../child-element/child-element.html">
 
 <dom-module id="my-element">
     <template>
@@ -21,8 +22,14 @@
         [[ nomeCompleto ]]
         <br/>
         <a id$="[[ link ]]">Link</a>
+        <input type="text" value="{{ text::input }}"/>
+        [[ text ]]
+        [[ text ]]
+        [[ text ]]
+        [[ text ]]
+        <br/>
+        <child-element text="[[ text ]]"></child-element>
     </template>
-
     <script type="text/javascript">
         Polymer({
             is: 'my-element',
@@ -34,6 +41,16 @@
                 'botao.click': 'handleClick'
             },
             properties: {
+                clients: {
+                    type: Array,
+                    value: [
+                        {id: 1, name: "Cliente 1"},
+                        {id: 2, name: "Cliente 2"},
+                        {id: 3, name: "Cliente 3"},
+                        {id: 4, name: "Cliente 4"},
+                    ]
+                },
+                text: String,
                 link: {
                     type: String,
                     value: 'http://google.com.br'

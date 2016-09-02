@@ -1,0 +1,15 @@
+<link rel="import" href="../../bower_components/polymer/polymer.html">
+
+<dom-module id="child-element">
+    <template>
+        <input type="text" value$="[[ text ]]"/>
+    </template>
+    <script type="text/javascript">
+        Polymer({
+            is: 'child-element',
+            properties: {
+                text: String
+            }
+        });
+    </script>
+</dom-module>
