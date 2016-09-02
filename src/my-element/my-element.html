@@ -29,6 +29,11 @@
         [[ text ]]
         <br/>
         <child-element text="[[ text ]]"></child-element>
+        <ul>
+            <template is="dom-repeat" items="{{ clients }}">
+                <li>[[ index ]] - {{ item.id }} - {{ item.name }}</li>
+            </template>
+        </ul>
     </template>
     <script type="text/javascript">
         Polymer({
@@ -65,7 +70,7 @@
             getNomeCompleto: function (primeiroNome, segundoNome) {
                 return primeiroNome + ' ' + segundoNome
             },
-            handleClick: function(e){
+            handleClick: function (e) {
                 console.log(e);
             }
         });
