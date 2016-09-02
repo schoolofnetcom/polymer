@@ -1,0 +1,23 @@
+<link rel="import" href="../../bower_components/polymer/polymer.html">
+
+<dom-module id="my-element">
+    <template>
+        <h2>Criando meu elemento separadamente</h2>
+        <span id="teste"></span>
+    </template>
+
+    <script type="text/javascript">
+        Polymer({
+            is: 'my-element',
+            ready: function () {
+                this.$.teste.innerHTML = this.teste;
+            },
+            properties: {
+                teste: {
+                    type: Number,
+                    value: 120
+                }
+            }
+        });
+    </script>
+</dom-module>
