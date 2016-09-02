@@ -2,11 +2,25 @@
 
 <dom-module id="my-element">
     <template>
+        <style type="text/css">
+            :host {
+                color: green;
+            }
+        </style>
+
         <h2>Criando meu elemento separadamente</h2>
         <span id="teste"></span>
         <button id="botao">Clique me!</button>
         <button>Clique me!</button>
         <button>Clique me!</button>
+        <br/><br/>
+        [[ primeiroNome ]]
+        <br/>
+        [[ segundoNome ]]
+        <br/>
+        [[ nomeCompleto ]]
+        <br/>
+        <a id$="[[ link ]]">Link</a>
     </template>
 
     <script type="text/javascript">
@@ -20,6 +34,10 @@
                 'botao.click': 'handleClick'
             },
             properties: {
+                link: {
+                    type: String,
+                    value: 'http://google.com.br'
+                },
                 primeiroNome: String,
                 segundoNome: String,
                 nomeCompleto: {
