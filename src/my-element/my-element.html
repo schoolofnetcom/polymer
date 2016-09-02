@@ -29,11 +29,13 @@
         [[ text ]]
         <br/>
         <child-element text="[[ text ]]"></child-element>
-        <ul>
-            <template is="dom-repeat" items="{{ clients }}">
-                <li>[[ index ]] - {{ item.id }} - {{ item.name }}</li>
-            </template>
-        </ul>
+        <template is="dom-if" if="{{ showClients }}">
+            <ul>
+                <template is="dom-repeat" items="{{ clients }}">
+                    <li>[[ index ]] - {{ item.id }} - {{ item.name }}</li>
+                </template>
+            </ul>
+        </template>
     </template>
     <script type="text/javascript">
         Polymer({
@@ -43,9 +45,9 @@
             },
             listeners: {
                 'click': 'handleClick',
-                'botao.click': 'handleClick'
             },
             properties: {
+                showClients: Boolean,
                 clients: {
                     type: Array,
                     value: [
@@ -71,6 +73,7 @@
                 return primeiroNome + ' ' + segundoNome
             },
             handleClick: function (e) {
+                this.showClients = !this.showClients;
                 console.log(e);
             }
         });
