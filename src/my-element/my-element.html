@@ -4,6 +4,9 @@
     <template>
         <h2>Criando meu elemento separadamente</h2>
         <span id="teste"></span>
+        <button id="botao">Clique me!</button>
+        <button>Clique me!</button>
+        <button>Clique me!</button>
     </template>
 
     <script type="text/javascript">
@@ -11,6 +14,10 @@
             is: 'my-element',
             ready: function () {
                 this.$.teste.innerHTML = this.nomeCompleto;
+            },
+            listeners: {
+                'click': 'handleClick',
+                'botao.click': 'handleClick'
             },
             properties: {
                 primeiroNome: String,
@@ -22,6 +29,9 @@
             },
             getNomeCompleto: function (primeiroNome, segundoNome) {
                 return primeiroNome + ' ' + segundoNome
+            },
+            handleClick: function(e){
+                console.log(e);
             }
         });
     </script>
