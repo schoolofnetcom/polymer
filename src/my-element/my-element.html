@@ -10,13 +10,18 @@
         Polymer({
             is: 'my-element',
             ready: function () {
-                this.$.teste.innerHTML = this.teste;
+                this.$.teste.innerHTML = this.nomeCompleto;
             },
             properties: {
-                teste: {
-                    type: Number,
-                    value: 120
+                primeiroNome: String,
+                segundoNome: String,
+                nomeCompleto: {
+                    type: String,
+                    computed: 'getNomeCompleto(primeiroNome,segundoNome)'
                 }
+            },
+            getNomeCompleto: function (primeiroNome, segundoNome) {
+                return primeiroNome + ' ' + segundoNome
             }
         });
     </script>
