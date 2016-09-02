@@ -12,36 +12,31 @@
 </head>
 <body>
 <!--<polymer-son-app></polymer-son-app>-->
-<input is="my-text">
 <button is="my-button"></button>
 <script type="text/javascript">
     (function () {
         var MyButton = Polymer({
             is: 'my-button',
             extends: 'button',
-            created: function(){
-                this.innerHTML = "botão";
+            ready: function(){
+                if(this.prop1) {
+                    this.innerHTML = this.teste;
+                }else{
+                    this.innerHTML = "prop1 é false"
+                }
 
+            },
+            properties: {
+                teste: {
+                    type: Object,
+                    value: 120
+                },
+                prop1: {
+                    type: Boolean,
+                }
             }
         });
-        var myButton = document.createElement('button','my-button');
-        myButton.innerHTML = "Meu botão personalizado";
-        var myButton2 = new MyButton();
-        myButton2.innerHTML = "Meu botão personalizado 2";
-        document.body.appendChild(myButton);
-        document.body.appendChild(myButton2);
 
-        var MyInputText = Polymer({
-            is: 'my-text',
-            extends: 'input',
-            created: function(){
-                this.value = "texto";
-            }
-        });
-
-        var myInputText = new MyInputText();
-        myInputText.value = "Luiz Carlos";
-        document.body.appendChild(myInputText);
     })();
 </script>
 </body>
